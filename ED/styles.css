@@ -1,0 +1,41 @@
+#grad1 {
+			
+    background: rgb(30, 30, 30); /* :0; */
+}
+
+body { color: #FFFFFF; }
+
+.titles{
+    padding: 10px;
+
+}
+
+.infoPaso{
+    padding: 10px;
+
+}
+
+.desarrollo{
+    padding: 10px;
+
+    font-size: 30px;
+     font: bold;
+    align-content: space-around;
+}
+
+.infoTypo{
+    font-family: Verdana, 'Trebuchet MS';
+    font-size: 17px;
+}
+
+#tablePrin{
+    border-collapse: separate;
+    border-spacing: 15px;
+};
+
+.ejer{
+    font-size: 15px;
+    position: absolute;
+    width: 50%;
+}
+

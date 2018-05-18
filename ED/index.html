@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title>Ec. dif. 2do ordern</title>
+
+	<!--Cositas para que las cosas de bootstrap funcionen-->
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<script type="text/javascript" src="scr.js"></script>
+<link rel="stylesheet" href="styles.css">
+<body id="grad1">
+
+	<div align="center"><h1><font color="white">Ecuaciones diferenciales homogeneas de segundo orden.</font></h1></div>			
+	<div align="center">
+		<table style="border: 5px" id="tablePrin">
+			
+			<th class="desarrollo">
+
+				<form class="form-inline" action="/action_page.php">
+					<p class="infoTypo">	 
+					<br><br>
+					&nbsp;&nbsp;Bienvenido a mi sistema de resolución de ecuaciones diferenciales homogeneas de segundo orden. 
+					<br>&nbsp;&nbsp;Hay que llenar los espacios en blanco con los coeficientes de la ec. dif.
+				 	y presionar el botón para avanzar a cada una de las etapas de la solución.
+					</p>
+					<input type="button" value="Aprietame" name="boton" id="btn" class="btn btn-default" onclick="resolver(document.getElementById('y2').value,document.getElementById('y1').value,document.getElementById('y').value)">
+					<div class="form-group">
+					<input type="number" class="form-control" id="y2" name="y2">
+					<label for="email">y''</label>		  
+					</div>
+					<div class="form-group">
+					<input type="number" class="form-control" id="y1" name="y1">
+					<label for="pwd">y'</label>		  
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control" id="y" name="y">
+						<label for="pwd">y = 0</label>			
+					</div>
+					
+				</form>
+
+			</th>		
+			<th>
+			<tr>
+				<div id="secc2Paso"  style="display:none;" class="answer_list" >				
+					<th colspan="2" class="titles" ><div id="EcCac"></div></th>
+				</div>
+			</tr>
+				<th class="desarrollo">
+
+					<div id="secc2Problema"  style="display:none;" class="answer_list" style="position: relative">	
+						<div id="ecuacion" class="ejer"></div> 
+						<br>
+						<br>	
+						Ecuación característica de la ecuación dada.
+						<br>
+						Tenemos: 
+						<br> <p class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<sub>2</sub>m<sup>2</sup>e<sup>mx</sup> + a<sub>1</sub>me<sup>mx</sup> + a<sub>0</sub>e<sup>mx</sup> = 0 </p>
+						Como e<sup>mx</sup> ≠ 0 se plantea la ecuación caracteristica como: 
+						<br><p class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a<sub>2</sub>m<sup>2</sup> + a<sub>1</sub>m + a<sub>0</sub> = 0 </p>
+						<input type="button" value="Aprietame" name="boton" id="btn" class="btn btn-default" onclick="showTableSection(3)">
+					</div>
+				</th>
+				
+			<tr>
+					<th colspan="2" class="titles">
+						<div id="secc3Paso"  style="display:none;" class="answer_list" >							
+							<div id="raices"></div>
+						</div>
+					</th>
+			</tr>
+				<th class="desarrollo">
+					<div id="secc3Problema"  style="display:none;" class="answer_list" >	
+						<div id="varAlfa" class="ejer"></div>
+						<div id="varBeta" class="ejer"></div>
+						<div id="m1" class="ejer"></div>
+						<div id="m2" class="ejer"></div>
+						<br><br>						
+						<br>					
+						Raíces en de una ecuación de segundo grado.
+						<p > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; α será igual a la parte real de la solución. 
+						<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por otro lado β será la parte imaginaria. </p>
+						<br>
+						<input type="button" value="Aprietame" name="boton" id="btn" class="btn btn-default" onclick="showTableSection(4)">
+					</div>
+				</th>
+			<tr>
+			</th>
+				<th colspan="2" class="titles">
+					<div id="secc4Paso"  style="display:none;" class="answer_list" >		
+						<div id="solucion"></div>
+					</div>						
+				</th>
+			</tr>
+				<th class="desarrollo">
+					<div id="secc4Problema"  style="display:none;" class="answer_list" >	
+						<div id="yc1" class="ejer"></div>
+						<br><div id="yc2" class="ejer"></div>
+						<br><br>						
+						<br>	
+						Se obtienen las soluciones linealmente indepentiendes.
+						<br>En el caso de que las raíces de la ecuación característica sean reales, las soluciones se plantean de la siguiente manera: 
+						 <p class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y<sub>c1</sub> = e<sup>m<sub>1</sub>x</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y<sub>c2</sub> = e<sup>m<sub>2</sub>x</sup> </p>
+						Para nuestro caso, si las raíces son iguales, entonces las soluciones linealmente independientes serán: 
+						 <p class="text-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y<sub>c1</sub> = e<sup>m<sub>1</sub>x</sup> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y<sub>c2</sub> = xe<sup>m<sub>1</sub>x</sup> </p>
+						<br> Por otro lado, si las raíces son imaginarias, las soluciones se plantean de la siguiente forma:
+						 <p class="text-primary"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y<sub>c1</sub> = e<sup>αx</sup>cos(βx), y<sub>c2</sub> = e<sup>αx</sup>sen(βx) </p>
+						 <br><input type="button" value="Aprietame" name="boton" id="btn" class="btn btn-default" onclick="showTableSection(5)">
+					</div>
+				</th>
+			<tr>
+				<th colspan="2" class="titles">
+					<div id="secc5Paso"  style="display:none;" class="answer_list" >	
+						<div id="solGen"></div>
+					</div>
+				</th>
+			</tr>
+				<th class="desarrollo">
+					<div id="secc5Problema"  style="display:none;" class="answer_list" >	
+						<div id="yc" class="ejer"></div>	
+									
+						La solución general está compuesta por las soluciones linealmente dependientes, las cuales se multiplicaran por 2 constantes arbitrarias( C<sub>1</sub> y C<sub>2</sub>) y procedemos a sumar.
+					</div>
+					</th>
+		</table>	
+	</div>
+	<nav class="navbar navbar-default" style="background-color:rgb(0, 0, 0)">
+				<div class="container-fluid" >
+				  <div class="navbar-header">
+					<a class="navbar-brand names" ><font color="white">Solucionador ecuaciones diferenciales homogeneas de segundo orden. </font></a>
+					<br><a class="navbar-brand names"><font color="white">Autor: Becerril Bernal Malinali&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Servin Victoria Fernando &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1CV7</font> </a>
+				</div>
+
+				</div>
+			  </nav>
+
+</body>
+</html>
